@@ -1,0 +1,20 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "discovery-server" [ label = "discovery-server
+(AWS::ECS::Service)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "user-service" [ label = "user-service
+(AWS::ECS::Service)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "testservice" [ label = "testservice
+(AWS::ECS::Service)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "api-gateway" [ label = "api-gateway
+(AWS::ECS::Service)", shape =rectangle, fillcolor = "#E78F81" ];
+  "mysql-db" [ label = "mysql-db
+(AWS::RDS::DBInstance)", shape =cylinder, fillcolor = "#FFCFB3" ];
+  "spring-network" [ label = "spring-network
+(AWS::EC2::VPC)", shape =rectangle ];
+  "user-service" -> "discovery-server";
+  "user-service" -> "mysql-db";
+  "testservice" -> "discovery-server";
+  "testservice" -> "mysql-db";
+  "api-gateway" -> "discovery-server";
+}
